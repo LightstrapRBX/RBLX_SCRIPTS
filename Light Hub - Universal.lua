@@ -199,8 +199,10 @@ playersTab:Slider("Change Walk Speed", 0, 500, game.Players.LocalPlayer.Characte
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = val
 end)
 
-playersTab:Slider("Change Jump Height", 0, 250, game.Players.LocalPlayer.Character.Humanoid.JumpHeight, function(val)
-    game.Players.LocalPlayer.Character.Humanoid.JumpHeight = val
+local jumpHeight = game.Players.LocalPlayer.Character.Humanoid.JumpHeight or game.Players.LocalPlayer.Character.Humanoid.JumpPower
+
+playersTab:Slider("Change Jump Power", 0, 250, jumpHeight.Value, function(val)
+    jumpHeight.Value = val
 end)
 
 getgenv().infJumpFirstTime = false
