@@ -84,6 +84,9 @@ Notification:Notify(
     }
 )
 
+warn("\n\n\n\n------------------------")
+warn("-- [ LOADING LIGHTHUB ] --")
+
 local function initDot(text, time, bypassBase)
     local count = 0
     local base = "Loading "
@@ -100,7 +103,6 @@ local function initDot(text, time, bypassBase)
         if not decr then break end
         if getgenv().overrideDotInit then getgenv().overrideDotInit = false; break end
         count = i
-        warn(tostring(i), count)
         if count == 1 then
             if bypassBase then
                 decr.Text = text .. "."
@@ -143,18 +145,24 @@ local win = lib:Window("LIGHT HUB | Lightstrap // LDevs#0658", loadingColor, get
 task.spawn(function()
     task.wait(0.5) -- 0.5 passed
     initDot("TBs", 3)
+    warn("-- [ LOADING TBs ] --")
     task.wait(3) -- 4 passed
     getgenv().overrideDotInit = true
     initDot("BTNs", 2)
+    warn("-- [ LOADING BTNs ] --")
     task.wait(2) -- 5.5 passed
     getgenv().overrideDotInit = true
     initDot("SLDRs", 2.5)
+    warn("-- [ LOADING SLDRs ] --")
     task.wait(2.5) -- 8 passed
     getgenv().overrideDotInit = true
     initDot("Finalizing Hub", 3.5, true)
+    warn("-- [ FINALIZING HUB ] --")
     task.wait(3.5) -- 11.5 passed
     getgenv().overrideDotInit = true
     initDot("Successfully loaded LightHub", 1.5, true)
+    warn("-- [ SUCCESSFULLY LOADED LIGHTHUB ] --")
+    warn("------------------------\n\n\n\n")
     task.wait(1.25) -- 13 passed
     getgenv().overrideDotInit = true
     getgenv().hubIsLoaded = true
@@ -199,10 +207,14 @@ playersTab:Slider("Change Walk Speed", 0, 500, game.Players.LocalPlayer.Characte
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = val
 end)
 
-local jumpHeight = game.Players.LocalPlayer.Character.Humanoid.JumpHeight or game.Players.LocalPlayer.Character.Humanoid.JumpPower
+game.Players.LocalPlayer.Character.Humanoid.UseJumpPower = false
 
-playersTab:Slider("Change Jump Power", 0, 250, jumpHeight.Value, function(val)
-    jumpHeight.Value = val
+playersTab:Slider("Change Jump Power", 0, 250, jumpHeight, function(val)
+    if game.Players.LocalPlayer.Character.Humanoid.JumpHeight ~= nil then
+        game.Players.LocalPlayer.Character.Humanoid.JumpHeight = val
+    else
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = val
+    end
 end)
 
 getgenv().infJumpFirstTime = false
@@ -317,7 +329,9 @@ Notification:Notify(
 
 task.spawn(function ()
     for _, obj in pairs(game.CoreGui:FindFirstChild("ui").Main.TabHold:GetChildren()) do
-        obj.TabBtn.TabTitle.TextScaled = true
+        if obj.Name ~= "TabHoldLayout" and string.len(obj.TabTitle.Text) >= 17 then
+            obj.TabTitle.TextScaled = true 
+        end
     end
 end)
 
