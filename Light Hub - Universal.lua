@@ -172,6 +172,7 @@ local mainTab = win:Tab("Main")
 -- do stuff here
 
 -------------------------
+-------------------------
 
 -- [ Extra ] --
 mainTab:Button("Destroy GUI", function()
@@ -188,6 +189,9 @@ mainTab:Button("Destroy GUI", function()
         }
     )
 end)
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 
 local playersTab = win:Tab("Players")
 
