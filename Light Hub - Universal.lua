@@ -313,6 +313,12 @@ Notification:Notify(
     }
 )
 
+task.spawn(function ()
+    for _, obj in pairs(game.CoreGui:FindFirstChild("ui").Main.TabHold:GetChildren()) do
+        obj.TabBtn.TabTitle.TextScaled = true
+    end
+end)
+
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
