@@ -183,7 +183,7 @@ local mainTab = win:Tab("Main")
 -------------------------
 
 -- [ Extra ] --
-mainTab:Button("Destroy GUI", function()
+mainTab:Button("Destroy Hub", function()
     getgenv().destroyHub()
     Notification:Notify(
         {
@@ -209,13 +209,44 @@ end)
 
 game.Players.LocalPlayer.Character.Humanoid.UseJumpPower = false
 
-playersTab:Slider("Change Jump Power", 0, 250, jumpHeight, function(val)
+playersTab:Slider("Change Jump Power", 0, 250, (game.Players.LocalPlayer.Character.Humanoid.JumpHeight or game.Players.LocalPlayer.Character.Humanoid.JumpPower), function(val)
     if game.Players.LocalPlayer.Character.Humanoid.JumpHeight ~= nil then
         game.Players.LocalPlayer.Character.Humanoid.JumpHeight = val
     else
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = val
     end
 end)
+
+task.spawn(function ()
+    getgenv().playerTable = {}
+    for _, player in pairs(game.Players:GetPlayers()) do
+        getgenv().playerTable[player] = player.Name
+    end
+    game.Players.PlayerAdded:Connect(function(player)
+        player.CharacterAdded:Connect(function(char)
+            getgenv().playerTable[player] = player.Name
+        end)
+    end)
+    game.Players.PlayerRemoving:Connect(function(player)
+        getgenv().playerTable[player] = nil
+    end)
+end)
+
+playersTab:Dropdown("Select Player to TP To", getgenv().playerTable, function(selected)
+    getgenv().selectedPlayerToTPTo = selected
+end)
+
+playersTab:Button("Teleport to Player", function()
+    if getgenv().selectedPlayerToTPTo and getgenv().selectedPlayerToTPTo ~= game.Players.LocalPlayer.Name then
+        local playerChar = game.Players.LocalPlayer.Character
+        local targetChar = game.Players[getgenv().selectedPlayerToTPTo].Character
+        playerChar.HumanoidRootPart.CFrame = targetChar.HumanoidRootPart.CFrame
+    end
+end)
+
+----------------------------------------------------------------------------
+
+-- [ Extra ] --
 
 getgenv().infJumpFirstTime = false
 getgenv().infJumpEnabled = false
@@ -284,6 +315,17 @@ if game.PlaceId == 292439477 then
         if not getgenv().gameExecutables.Strawhook then
             getgenv().gameExecutables.Strawhook = not getgenv().gameExecutables.Strawhook
             loadstring(game:HttpGet("https://raw.githubusercontent.com/VoidMasterX/strawhook/main/script.lua", true))()
+        end
+    end)
+elseif game.PlaceId == 6299805723 then
+    getgenv().gameExecutables = {
+        Zer0Hub = false;
+    }
+    local gameExecutables = win:Tab(game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. " - Executables")
+    gameExecutables:Button("Zer0Hub", function()
+        if not getgenv().gameExecutables.Zer0Hub then
+            getgenv().gameExecutables.Zer0Hub = not getgenv().gameExecutables.Zer0Hub
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Discord0000/Zer0Hub/main/MainScript.lua"))()
         end
     end)
 end
