@@ -321,7 +321,7 @@ elseif game.PlaceId == 6299805723 then
     getgenv().gameExecutables = {
         Zer0Hub = false;
     }
-    local gameExecutables = win:Tab(game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. " - Executables")
+    local gameExecutables = win:Tab("Anime Fighters - Executables")
     gameExecutables:Button("Zer0Hub", function()
         if not getgenv().gameExecutables.Zer0Hub then
             getgenv().gameExecutables.Zer0Hub = not getgenv().gameExecutables.Zer0Hub
