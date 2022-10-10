@@ -80,16 +80,37 @@ local BaseSpeed = Tab:AddSlider({
     end
 })
 
+local CurrentStamina = Tab:AddSlider({
+	Name = "CurrentStamina",
+	Min = v.Stamina.Value,
+	Max = 10000,
+	Default = v.Stamina.Value,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Current Stamina",
+	Callback = function(Value)
+        v.Stamina.Value = (Value)
+    end
+})
+
+local MaxStamina = Tab:AddSlider({
+	Name = "MaxStamina",
+	Min = v.MaxStamina.Value,
+	Max = 10000,
+	Default = v.MaxStamina.Value,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Max Stamina",
+	Callback = function(Value)
+        v.MaxStamina.Value = (Value)
+    end
+})
+
 -------------------------------------------------------------------------
 
 local Section3 = Tab:AddSection({
 	Name = "Armor Values"
 })
-
-local totalArmor = v.Armor.Total.Value
-v.Armor.Total.Changed:Connect(function()
-    totalArmor = v.Armor.Total.Value
-end)
 
 local CurrentArmor = Tab:AddSlider({
 	Name = "CurrentArmor",
