@@ -205,12 +205,12 @@ local bind2 = Tab2:AddBind({
 })
 
 local bind3 = Tab2:AddBind({
-	Name = "Move Player 10+ Studs Ahead (noclip thru walls, etc)",
+	Name = "Move Player Forward (noclip thru walls, etc)",
 	Default = Enum.KeyCode.V,
 	Hold = false,
 	Callback = function()
 		local v = workspace.Criminals[game.Players.LocalPlayer.Name]
-        v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
+        v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(2, -5, 2)
     end
 })
 
