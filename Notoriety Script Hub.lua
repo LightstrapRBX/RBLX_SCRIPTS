@@ -80,6 +80,13 @@ local BaseSpeed = Tab:AddSlider({
     end
 })
 
+Tab:AddButton({
+	Name = "FillStamina",
+	Callback = function()
+		v.Stamina.Value = v.MaxStamina.Value
+	end
+})
+
 local CurrentStamina = Tab:AddSlider({
 	Name = "CurrentStamina",
 	Min = v.Stamina.Value,
@@ -103,64 +110,6 @@ local MaxStamina = Tab:AddSlider({
 	ValueName = "Max Stamina",
 	Callback = function(Value)
         v.MaxStamina.Value = (Value)
-    end
-})
-
-local CurrentHealth = Tab:AddSlider({
-	Name = "CurrentHealth",
-	Min = v.Health.Value,
-	Max = 10000,
-	Default = v.Health.Value,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Current Health",
-	Callback = function(Value)
-        v.Health.Value = (Value)
-    end
-})
-
-local MaxHealth = Tab:AddSlider({
-	Name = "MaxHealth",
-	Min = v.Health.Total.Value,
-	Max = 10000,
-	Default = v.Health.Total.Value,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Max Health",
-	Callback = function(Value)
-        v.Health.Total.Value = (Value)
-    end
-})
-
--------------------------------------------------------------------------
-
-local Section3 = Tab:AddSection({
-	Name = "Armor Values"
-})
-
-local CurrentArmor = Tab:AddSlider({
-	Name = "CurrentArmor",
-	Min = v.Armor.Value,
-	Max = 1000000,
-	Default = v.Armor.Value,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Current Armor",
-	Callback = function(Value)
-        v.Armor.Value = (Value)
-    end
-})
-
-local TotalArmor = Tab:AddSlider({
-	Name = "TotalArmor",
-	Min = v.Armor.Total.Value,
-	Max = 1000000,
-	Default = v.Armor.Total.Value,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Total Armor",
-	Callback = function(Value)
-        v.Armor.Total.Value = (Value)
     end
 })
 
@@ -232,6 +181,20 @@ local Tab2 = Window:MakeTab({
 	PremiumOnly = false
 })
 
+Tab2:AddButton({
+	Name = "Teleport Player to Vault",
+	Callback = function()
+		v.HumanoidRootPart.Position = Vector3.new(-2.2, 6.3, 181.7)
+	end
+})
+
+Tab2:AddButton({
+	Name = "Teleport Player to Archives",
+	Callback = function()
+		v.HumanoidRootPart.Position = Vector3.new(-25.6362, 20.5459, 388.7137)
+	end
+})
+
 local bind2 = Tab2:AddBind({
 	Name = "Teleport Player to Evacuation",
 	Default = Enum.KeyCode.P,
@@ -246,7 +209,8 @@ local bind3 = Tab2:AddBind({
 	Default = Enum.KeyCode.V,
 	Hold = false,
 	Callback = function()
-        v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, -10)
+		local v = workspace.Criminals[game.Players.LocalPlayer.Name]
+        v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
     end
 })
 
