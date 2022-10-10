@@ -210,7 +210,7 @@ local bind3 = Tab2:AddBind({
 	Hold = false,
 	Callback = function()
 		local v = workspace.Criminals[game.Players.LocalPlayer.Name]
-        v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(2, -5, 2)
+        v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 2, -5)
     end
 })
 
