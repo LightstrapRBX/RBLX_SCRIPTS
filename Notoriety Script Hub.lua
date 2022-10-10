@@ -64,7 +64,7 @@ local PickLock = Tab:AddBind({
 -------------------------------------------------------------------------
 
 local Section2 = Tab:AddSection({
-	Name = "Player Speed Values"
+	Name = "Player Values"
 })
 
 local BaseSpeed = Tab:AddSlider({
@@ -103,6 +103,32 @@ local MaxStamina = Tab:AddSlider({
 	ValueName = "Max Stamina",
 	Callback = function(Value)
         v.MaxStamina.Value = (Value)
+    end
+})
+
+local CurrentHealth = Tab:AddSlider({
+	Name = "CurrentHealth",
+	Min = v.Health.Value,
+	Max = 10000,
+	Default = v.Health.Value,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Current Health",
+	Callback = function(Value)
+        v.Health.Value = (Value)
+    end
+})
+
+local MaxHealth = Tab:AddSlider({
+	Name = "MaxHealth",
+	Min = v.Health.Total.Value,
+	Max = 10000,
+	Default = v.Health.Total.Value,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Max Health",
+	Callback = function(Value)
+        v.Health.Total.Value = (Value)
     end
 })
 
