@@ -94,7 +94,7 @@ end)
 local CurrentArmor = Tab:AddSlider({
 	Name = "CurrentArmor",
 	Min = v.Armor.Value,
-	Max = totalArmor,
+	Max = 1000000,
 	Default = v.Armor.Value,
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
