@@ -297,14 +297,14 @@ local BrickBank = Window:MakeTab({
 BrickBank:AddButton({
 	Name = "TP to Vault",
 	Callback = function()
-		v.HumanoidRootPart.Position = Vector3.new(69.2238, 15, 126.0248)
+		v.HumanoidRootPart.Position = Vector3.new(69.2238, 17, 126.0248)
 	end
 })
 
 BrickBank:AddButton({
 	Name = "TP to Escape",
 	Callback = function()
-		v.HumanoidRootPart.Position = Vector3.new(-109.3426, 50, -8.1656)
+		v.HumanoidRootPart.Position = Vector3.new(-107.6810, 50, 5.6258)
 	end
 })
 
