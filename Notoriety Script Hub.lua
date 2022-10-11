@@ -214,6 +214,13 @@ local bind3 = Tab2:AddBind({
     end
 })
 
+Tab2:AddButton({
+	Name = "Teleport Player to Escape [BB]",
+	Callback = function()
+		v.HumanoidRootPart.Position = Vector3.new(-109.3426, 48.4500, -8.1656)
+	end
+})
+
 local bind1 = Tab2:AddButton({
 	Name = "Teleport bags to Evacuation [1]",
 	Callback = function()
@@ -230,7 +237,7 @@ local bind1_2 = Tab2:AddButton({
 	Callback = function()
         for i,v in pairs(game:GetService("Workspace").Bags:GetDescendants()) do
             if v.Name == 'MoneyBag' then
-                v.CFrame = game:GetService("Workspace").BagSecuredArea.FloorPart.CFrame * CFrame.new(0,0,3)
+                v.CFrame = game:GetService("Workspace").BagSecuredArea.FloorPart.CFrame * CFrame.new(0,3,0)
             end
         end
     end
@@ -241,7 +248,7 @@ local bind1_3 = Tab2:AddButton({
 	Callback = function()
         for i,v in pairs(game:GetService("Workspace").Bags:GetDescendants()) do
             if v.Name == 'MoneyBag' then
-                v.CFrame = game:GetService("Workspace").BagSecuredArea.FloorPart.CFrame * CFrame.new(0,0,5)
+                v.CFrame = game:GetService("Workspace").BagSecuredArea.FloorPart.CFrame * CFrame.new(0,5,0)
             end
         end
     end
@@ -252,7 +259,7 @@ local bind1_4 = Tab2:AddButton({
 	Callback = function()
         for i,v in pairs(game:GetService("Workspace").Bags:GetDescendants()) do
             if v.Name == 'MoneyBag' then
-                v.CFrame = game:GetService("Workspace").BagSecuredArea.FloorPart.CFrame * CFrame.new(0,0,7)
+                v.CFrame = game:GetService("Workspace").BagSecuredArea.FloorPart.CFrame * CFrame.new(0,7,0)
             end
         end
     end
@@ -263,7 +270,7 @@ local bind1_5 = Tab2:AddButton({
 	Callback = function()
         for i,v in pairs(game:GetService("Workspace").Bags:GetDescendants()) do
             if v.Name == 'MoneyBag' then
-                v.CFrame = game:GetService("Workspace").BagSecuredArea.FloorPart.CFrame * CFrame.new(0,0,10)
+                v.CFrame = game:GetService("Workspace").BagSecuredArea.FloorPart.CFrame * CFrame.new(0,10,0)
             end
         end
     end
