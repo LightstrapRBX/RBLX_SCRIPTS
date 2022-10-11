@@ -181,26 +181,12 @@ local Tab2 = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab2:AddButton({
-	Name = "Teleport Player to Vault",
-	Callback = function()
-		v.HumanoidRootPart.Position = Vector3.new(-2.2, 6.3, 181.7)
-	end
-})
-
-Tab2:AddButton({
-	Name = "Teleport Player to Archives",
-	Callback = function()
-		v.HumanoidRootPart.Position = Vector3.new(-25.6362, 20.5459, 388.7137)
-	end
-})
-
 local bind2 = Tab2:AddBind({
 	Name = "Teleport Player to Evacuation",
 	Default = Enum.KeyCode.P,
 	Hold = false,
 	Callback = function()
-        v.HumanoidRootPart.CFrame = game:GetService("Workspace").BagSecuredArea.FloorPart.CFrame
+        v.HumanoidRootPart.CFrame = game:GetService("Workspace").BagSecuredArea.FloorPart.CFrame * CFrame.new(0, 2, 0)
     end
 })
 
@@ -212,13 +198,6 @@ local bind3 = Tab2:AddBind({
 		local v = workspace.Criminals[game.Players.LocalPlayer.Name]
         v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 2, -5)
     end
-})
-
-Tab2:AddButton({
-	Name = "Teleport Player to Escape [BB]",
-	Callback = function()
-		v.HumanoidRootPart.Position = Vector3.new(-109.3426, 48.4500, -8.1656)
-	end
 })
 
 local bind1 = Tab2:AddButton({
@@ -305,6 +284,50 @@ Tab3:AddBind({
             end
         end
   	end    
+})
+
+----------------------------------------------------------------------------------------------------------------------------
+
+local BrickBank = Window:MakeTab({
+	Name = "Brick Bank",
+	Icon = "rbxassetid://6802936804",
+	PremiumOnly = false
+})
+
+BrickBank:AddButton({
+	Name = "TP to Vault",
+	Callback = function()
+		v.HumanoidRootPart.Position = Vector3.new(69.2238, 15, 126.0248)
+	end
+})
+
+BrickBank:AddButton({
+	Name = "TP to Escape",
+	Callback = function()
+		v.HumanoidRootPart.Position = Vector3.new(-109.3426, 50, -8.1656)
+	end
+})
+
+----------------------------------------------------------------------------------------------------------------------------
+
+local GMC = Window:MakeTab({
+	Name = "Golden Mask Casino [GMC]",
+	Icon = "rbxassetid://6802936804",
+	PremiumOnly = false
+})
+
+GMC:AddButton({
+	Name = "TP to Vault",
+	Callback = function()
+		v.HumanoidRootPart.Position = Vector3.new(-2.2, 6.3, 181.7)
+	end
+})
+
+GMC:AddButton({
+	Name = "TP to Archives",
+	Callback = function()
+		v.HumanoidRootPart.Position = Vector3.new(-25.6362, 20.5459, 388.7137)
+	end
 })
 
 OrionLib:Init()
