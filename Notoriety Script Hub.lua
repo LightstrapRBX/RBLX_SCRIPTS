@@ -299,7 +299,7 @@ BrickBank:AddButton({
 	Name = "TP to Vault",
 	Callback = function()
 		game:GetService("TweenService"):Create(v.HumanoidRootPart, TweenInfo.new(tweenTime), {
-			Position = Vector3.new(69.2238, 17, 126.0248)
+			Position = Vector3.new(69.2238, 19, 126.0248)
 		}):Play()
 		--v.HumanoidRootPart.Position = Vector3.new(69.2238, 17, 126.0248)
 	end
