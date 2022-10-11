@@ -298,18 +298,18 @@ BrickBank:AddButton({
 	Name = "TP to Vault",
 	Callback = function()
 		game:GetService("TweenService"):Create(v.HumanoidRootPart, TweenInfo.new(1), {
-			Vector3 = Vector3.new(69.2238, 17, 126.0248)
+			Position = Vector3.new(69.2238, 17, 126.0248)
 		}):Play()
 		--v.HumanoidRootPart.Position = Vector3.new(69.2238, 17, 126.0248)
 	end
 })
 
 BrickBank:AddButton({
-	Name = "TP to Escape (FIXED)",
+	Name = "TP to Escape",
 	Callback = function()
 		game:GetService("TweenService"):Create(v.HumanoidRootPart, TweenInfo.new(1), {
-			Vector3 = Vector3.new(-107.6810, 50, 5.6258)}
-		):Play()
+			Position = Vector3.new(-107.6810, 50, 5.6258)
+		}):Play()
 		--v.HumanoidRootPart.Position = Vector3.new(-107.6810, 50, 5.6258)
 	end
 })
@@ -326,7 +326,7 @@ GMC:AddButton({
 	Name = "TP to Vault",
 	Callback = function()
 		game:GetService("TweenService"):Create(v.HumanoidRootPart, TweenInfo.new(1), {
-			Vector3 = Vector3.new(-2.2, 6.3, 181.7)
+			Position = Vector3.new(-2.2, 6.3, 181.7)
 		}):Play()
 		--v.HumanoidRootPart.Position = Vector3.new(-2.2, 6.3, 181.7)
 	end
@@ -336,7 +336,7 @@ GMC:AddButton({
 	Name = "TP to Archives",
 	Callback = function()
 		game:GetService("TweenService"):Create(v.HumanoidRootPart, TweenInfo.new(1), {
-			Vector3 = Vector3.new(-25.6362, 20.5459, 388.7137)
+			Position = Vector3.new(-25.6362, 20.5459, 388.7137)
 		}):Play()
 		--v.HumanoidRootPart.Position = Vector3.new(-25.6362, 20.5459, 388.7137)
 	end
