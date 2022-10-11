@@ -297,14 +297,16 @@ local BrickBank = Window:MakeTab({
 BrickBank:AddButton({
 	Name = "TP to Vault",
 	Callback = function()
-		v.HumanoidRootPart.Position = Vector3.new(69.2238, 17, 126.0248)
+		--v.HumanoidRootPart.Position = Vector3.new(69.2238, 17, 126.0248)
+		game:GetService("TweenService"):Create(v, TweenInfo.new(1), {Vector3 = Vector3.new(69.2238, 17, 126.0248)}):Play()
 	end
 })
 
 BrickBank:AddButton({
 	Name = "TP to Escape",
 	Callback = function()
-		v.HumanoidRootPart.Position = Vector3.new(-107.6810, 50, 5.6258)
+		--v.HumanoidRootPart.Position = Vector3.new(-107.6810, 50, 5.6258)
+		game:GetService("TweenService"):Create(v, TweenInfo.new(1), {Vector3 = Vector3.new(-107.6810, 50, 5.6258)}):Play()
 	end
 })
 
