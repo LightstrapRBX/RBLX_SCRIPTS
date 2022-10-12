@@ -318,7 +318,7 @@ BrickBank:AddButton({
 ----------------------------------------------------------------------------------------------------------------------------
 
 local GMC = Window:MakeTab({
-	Name = "Golden Mask Casino [GMC]",
+	Name = "Golden Mask C [GMC]",
 	Icon = "rbxassetid://6802936804",
 	PremiumOnly = false
 })
@@ -340,6 +340,40 @@ GMC:AddButton({
 			Position = Vector3.new(-25.6362, 20.5459, 388.7137)
 		}):Play()
 		--v.HumanoidRootPart.Position = Vector3.new(-25.6362, 20.5459, 388.7137)
+	end
+})
+
+----------------------------------------------------------------------------------------------------------------------------
+
+local Bags = Window:MakeTab({
+	Name = "Bags [OP]",
+	Icon = "rbxassetid://6802936804",
+	PremiumOnly = false
+})
+
+Bags:AddButton({
+	Name = "Carry All Bags",
+	Callback = function()
+		for _,val in pairs(game:GetService("Workspace").Bags:GetDescendants()) do
+			if val.Name == 'MoneyBag' and val:FindFirstChild("BagWeld") == nil then
+				local weld = Instance.new("Weld")
+				weld.Name = "BagWeld"
+				weld.Part0 = val
+				weld.Part1 = v.HumanoidRootPart
+				weld.Parent = val
+			end
+		end
+	end
+})
+
+Bags:AddButton({
+	Name = "Drop All Bags",
+	Callback = function()
+		for _,val in pairs(game:GetService("Workspace").Bags:GetDescendants()) do
+			if val.Name == 'MoneyBag' and val:FindFirstChild("BagWeld") then
+				val.BagWeld:Destroy()
+			end
+		end
 	end
 })
 
