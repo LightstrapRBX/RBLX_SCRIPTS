@@ -4,6 +4,9 @@ for _, obj in pairs(game:GetService("CoreGui"):GetChildren()) do
     end
 end
 
+getgenv().foundWindow = nil
+getgenv().uiToggled = true
+
 getgenv().autoUpgrades = {
     ["SpawnLevel"] = {
         toggled = false,
@@ -43,6 +46,18 @@ task.spawn(function()
         end
     end
     local Content = myPlot.Board.UIHolder.BoardTemplate.Frame.Content
+
+    task.spawn(function()
+        while task.wait(0.1) do
+            if getgenv().foundWindow then
+                if getgenv().uiToggled then
+                    getgenv().foundWindow.Window.Visible = true
+                else
+                    getgenv().foundWindow.Window.Visible = false
+                end
+            end
+        end
+    end)
 
     task.spawn(function()
         local VirtualUser = game:GetService("VirtualUser")
@@ -130,7 +145,14 @@ end)
 -------------------------------------------------------------------------------------------------
 
 local UILib = loadstring(game:HttpGet('https://raw.githubusercontent.com/StepBroFurious/Script/main/HydraHubUi.lua'))()
-local Window = UILib.new("Halloween Merge Simulator", game.Players.LocalPlayer.Name, "Lightstrap#0658 was here...")
+local Window = UILib.new("Halloween Merge Simulator", game.Players.LocalPlayer.Name, "Lightstrap was here...")
+
+for _, obj in pairs(game:GetService("CoreGui"):GetChildren()) do
+    if obj:FindFirstChild("Window") and obj.Window:FindFirstChild("MainUI") then
+        getgenv().foundWindow = obj
+        break
+    end
+end
 
 local Category1 = Window:Category("Main", "http://www.roblox.com/asset/?id=8395621517")
 local C1_SubButton1 = Category1:Button("Player", "http://www.roblox.com/asset/?id=8395747586")
@@ -165,6 +187,17 @@ SB1_Section1:Slider(
     },
     function(value)
         getgenv().jumpPower = value
+    end
+)
+
+SB1_Section1:Keybind(
+    {
+        Title = "Toggle UI",
+        Description = "Open / close UI with key",
+        Default = Enum.KeyCode.RightControl
+    },
+    function()
+        getgenv().uiToggled = not getgenv().uiToggled
     end
 )
 
