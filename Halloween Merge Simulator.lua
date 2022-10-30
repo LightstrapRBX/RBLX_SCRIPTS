@@ -101,7 +101,6 @@ task.spawn(function()
         end
     end)
 
-
     task.spawn(function()
         while task.wait(0.1) do
             if getgenv().autoRebirth then
