@@ -1,3 +1,9 @@
+for _, obj in pairs(game:GetService("CoreGui"):GetChildren()) do
+    if obj:FindFirstChild("Window") and obj.Window:FindFirstChild("MainUI") then
+        obj:Destroy()
+    end
+end
+
 getgenv().autoUpgrades = {
     ["SpawnLevel"] = {
         toggled = false,
@@ -153,7 +159,7 @@ SB1_Section1:Slider(
     {
         Title = "Jump Power",
         Description = "",
-        Default = 16,
+        Default = 50,
         Min = 0,
         Max = 500
     },
