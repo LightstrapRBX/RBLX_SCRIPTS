@@ -4,5 +4,9 @@
         "undefined-global",
         "unused-local",
         "lowercase-global"
+    ],
+    "robloxLsp.diagnostics.globals": [
+        "getgenv",
+        "fireclickdetector"
     ]
 }
