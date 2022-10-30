@@ -39,6 +39,14 @@ task.spawn(function()
     local Content = myPlot.Board.UIHolder.BoardTemplate.Frame.Content
 
     task.spawn(function()
+        local VirtualUser = game:GetService("VirtualUser")
+        game:GetService("Players").LocalPlayer.Idled:Connect(function()
+            VirtualUser:CaptureController()
+            VirtualUser:ClickButton2(Vector2.new())
+        end)
+    end)
+
+    task.spawn(function()
         game.Players.LocalPlayer.Character.Humanoid.UseJumpPower = true
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = getgenv().walkSpeed
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = getgenv().jumpPower
