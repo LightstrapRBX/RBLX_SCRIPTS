@@ -1,3 +1,6 @@
+loadstring(game:HttpGet("https://versus-airlines.cf/V3/Loader.lua"))()
+-- KEY: YesNiggerThisIsAkeY
+
 getgenv().autoEquipBestWeapons = false
 
 task.spawn(function()
@@ -8,8 +11,6 @@ task.spawn(function()
         task.wait(5)
     end
 end)
-
------------------------------------------------------------------------------------------------------------------------
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
 
