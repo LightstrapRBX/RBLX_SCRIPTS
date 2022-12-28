@@ -1,8 +1,9 @@
-loadstring(game:HttpGet("https://versus-airlines.cf/V3/Loader.lua"))()
--- KEY: YesNiggerThisIsAkeY
-
 getgenv().autoEquipBestWeapons = false
 getgenv().autoEquipBestPets = false
+
+task.spawn(function()
+    loadstring(game:HttpGet("https://versus-airlines.cf/V3/Loader.lua"))()
+end)
 
 task.spawn(function()
     while true do
