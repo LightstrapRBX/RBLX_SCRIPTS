@@ -2,7 +2,8 @@ getgenv().autoEquipBestWeapons = false
 getgenv().autoEquipBestPets = false
 
 task.spawn(function()
-    loadstring(game:HttpGet("https://versus-airlines.cf/V3/Loader.lua"))()
+    getgenv().key = "ScottGayNigger69"
+    loadstring(game:HttpGet("https://versus-airlines.cf/scripts/loader.lua"))()
 end)
 
 task.spawn(function()
