@@ -17,7 +17,7 @@ Notification:Notify(
     },
     {
         OutlineColor = loadingColor,
-        Time = 13.75,
+        Time = 16.25,
         Type = "default"
     }
 )
@@ -79,7 +79,7 @@ end
 -- [ Initialising ] --
 
 task.spawn(function()
-    task.wait(3) -- 0.5 passed
+    task.wait(3) -- 3 passed
     initDot("TBs", 3)
     warn("-- [ LOADING TBs ] --")
     task.wait(3) -- 4 passed
