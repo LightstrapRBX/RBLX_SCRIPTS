@@ -110,14 +110,14 @@ repeat task.wait() until getgenv().hubIsLoaded
 ----------------------------------------------------------------------------------------
 
 task.spawn(function()
-    _G.wl_key = _G.LH_Keys[1] or "e473c4176b80b197d8ba696b62905b6e12064242"
+    _G.wl_key = _G.LH_Keys["BananaHub"] or "e473c4176b80b197d8ba696b62905b6e12064242"
     _G.FastLoad = true
     
     loadstring(game:HttpGet('https://raw.githubusercontent.com/diepedyt/bui/main/mainLoader.lua'))()
 end)
 
 task.spawn(function()
-    getgenv().key = _G.LH_Keys[2] or "YoMamaLovesSomeNiggaPorn"
+    getgenv().key = _G.LH_Keys["VersusAirlines"] or "YoMamaLovesSomeNiggaPorn"
     loadstring(game:HttpGet("https://versus-airlines.cf/scripts/loader.lua"))()
 end)
 
