@@ -1,3 +1,6 @@
+local bananaHubKey = "e473c4176b80b197d8ba696b62905b6e12064242"
+local versusAirlinesKey = "Nigga"
+
 local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
 
@@ -110,14 +113,17 @@ repeat task.wait() until getgenv().hubIsLoaded
 ----------------------------------------------------------------------------------------
 
 task.spawn(function()
-    _G.wl_key = _G.LH_Keys["BananaHub"] or "e473c4176b80b197d8ba696b62905b6e12064242"
+    _G.wl_key = _G.LH_Keys["BananaHub"] or bananaHubKey
     _G.FastLoad = true
     
     loadstring(game:HttpGet('https://raw.githubusercontent.com/diepedyt/bui/main/mainLoader.lua'))()
 end)
 
 task.spawn(function()
-    getgenv().key = _G.LH_Keys["VersusAirlines"] or "YoMamaLovesSomeNiggaPorn"
+    if _G.LH_Keys["VersusAirlines"] ~= versusAirlinesKey then
+        _G.LH_Keys["VersusAirlines"] = versusAirlinesKey
+    end
+    getgenv().key = _G.LH_Keys["VersusAirlines"]
     loadstring(game:HttpGet("https://versus-airlines.cf/scripts/loader.lua"))()
 end)
 
