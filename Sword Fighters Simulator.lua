@@ -1,4 +1,3 @@
-local lib = loadstring(game:HttpGet "https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/Vape.txt")()
 local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
 
@@ -8,12 +7,12 @@ local loadingColor = Color3.fromRGB(80, 80, 80)
 local doneLoadingColor = Color3.fromRGB(44, 120, 224)
 local succesColor = Color3.fromRGB(73, 255, 112)
 
-getgenv().hubDescription = "Loading window..."
+getgenv().hubDescription = "This hub was developed by: Lightstrap#0658 (loading window...)"
 getgenv().hubIsLoaded = false
 
 Notification:Notify(
     {
-        Title = "LOADING HUB",
+        Title = "LOADING LIGHTHUB",
         Description = getgenv().hubDescription
     },
     {
@@ -79,10 +78,8 @@ end
 
 -- [ Initialising ] --
 
-local win = lib:Window("LIGHT HUB | Lightstrap // LDevs#0658", loadingColor, getgenv().UI_KeyBind)
-
 task.spawn(function()
-    task.wait(0.5) -- 0.5 passed
+    task.wait(3) -- 0.5 passed
     initDot("TBs", 3)
     warn("-- [ LOADING TBs ] --")
     task.wait(3) -- 4 passed
